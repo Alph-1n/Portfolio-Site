@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="1600" height="1000">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#2a0e1f"/>
+      <stop offset="50%" stop-color="#4d1a3a"/>
+      <stop offset="100%" stop-color="#1a0e2e"/>
+    </linearGradient>
+    <radialGradient id="r" cx="70%" cy="80%" r="60%">
+      <stop offset="0%" stop-color="#ffb48a" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#ffb48a" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#g)"/>
+  <rect width="1600" height="1000" fill="url(#r)"/>
+  <g>
+    <circle cx="400" cy="500" r="140" fill="#ffb48a" opacity="0.35"/>
+    <circle cx="620" cy="460" r="90" fill="#ff8ac7" opacity="0.5"/>
+    <circle cx="820" cy="520" r="110" fill="#c98aff" opacity="0.4"/>
+    <circle cx="1030" cy="470" r="75" fill="#8adfff" opacity="0.5"/>
+  </g>
+  <g font-family="Georgia, serif" fill="#fff">
+    <text x="120" y="260" font-size="36" opacity="0.6">Speech Therapy</text>
+    <text x="120" y="400" font-size="120" font-style="italic">A calm game</text>
+    <text x="120" y="520" font-size="120" font-style="italic" opacity="0.75">for a loud category.</text>
+    <text x="120" y="830" font-size="20" opacity="0.5" font-family="ui-monospace, monospace">Placeholder cover — replace at /public/projects/speech-therapy/cover.svg</text>
+  </g>
+</svg>
