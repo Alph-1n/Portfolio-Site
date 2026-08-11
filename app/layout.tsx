@@ -61,7 +61,7 @@ const personLd = {
   '@type': 'Person',
   name: profile.fullName,
   url: site.url,
-  jobTitle: 'Product manager, consultant and software engineer',
+  jobTitle: 'Technically grounded early-career professional',
   address: { '@type': 'PostalAddress', addressLocality: profile.location },
   email: `mailto:${profile.email}`,
   description: profile.bio,

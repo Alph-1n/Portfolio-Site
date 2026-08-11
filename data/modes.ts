@@ -1,51 +1,50 @@
 import type { RoleMode } from '@/lib/types';
 
-// PLACEHOLDER — replace hero copy per role.
 export const modes: RoleMode[] = [
   {
     id: 'product',
     label: 'Product / APM',
     shortLabel: 'Product',
-    tagline: 'Ship the smallest thing that changes behaviour.',
-    heroKicker: 'Product Manager · APM',
-    heroHeadline: 'Products that feel inevitable in hindsight.',
+    tagline: 'Technical foundation, structured product thinking, and clear communication.',
+    heroKicker: 'Product / APM direction',
+    heroHeadline: 'Improve digital products with technical clarity and structured problem-solving.',
     introduction:
-      'I lead 0-to-1 product work — from problem framing and research to launch. I care about the details that make a product feel obvious once it exists, and I write specs the whole team actually wants to read.',
-    featuredProjectIds: ['ai-bible-translator', 'speech-therapy', 'bible-glyph'],
+      'I am a technically grounded early-career professional building experience in product workflows, requirements, user journeys, and interface iteration. I do not approach product as a title I already hold, but as a discipline I am actively developing through real software work.',
+    featuredProjectIds: ['bible-glyph', 'ai-bible-translator', 'adaptive-portfolio'],
     highlightedSkillCategories: ['product', 'research', 'design'],
     resumeUrl: '/resume/your-name-product.pdf',
     primaryCta: { label: 'View featured work', href: '#work' },
-    secondaryCta: { label: 'Read a case study', href: '/projects/ai-bible-translator' },
+    secondaryCta: { label: 'Read Bible Glyph', href: '/projects/bible-glyph' },
   },
   {
     id: 'business',
     label: 'Business / Consulting',
     shortLabel: 'Business',
-    tagline: 'Strategy that survives contact with the roadmap.',
-    heroKicker: 'Strategy · Consulting',
-    heroHeadline: 'Turn hard problems into calm, compounding decisions.',
+    tagline: 'Workflow analysis, structured thinking, and practical technology judgment.',
+    heroKicker: 'Business / Consulting direction',
+    heroHeadline: 'Translate complex workflows into clear product and business decisions.',
     introduction:
-      'I partner with founders and operating teams to reduce ambiguity — market shaping, GTM, and operating cadences that quietly compound. I sit close to the numbers and closer to the customer.',
-    featuredProjectIds: ['speech-therapy', 'ai-bible-translator', 'bible-glyph'],
+      'I am interested in business and consulting roles where technical understanding helps clarify requirements, map workflows, identify friction, and support better decisions. My strongest work sits where application behaviour, user needs, and operating constraints meet.',
+    featuredProjectIds: ['bible-glyph', 'ai-bible-translator', 'adaptive-portfolio'],
     highlightedSkillCategories: ['business', 'product', 'research'],
     resumeUrl: '/resume/your-name-consulting.pdf',
-    primaryCta: { label: 'See engagements', href: '#work' },
+    primaryCta: { label: 'See work examples', href: '#work' },
     secondaryCta: { label: 'Get in touch', href: '#contact' },
   },
   {
     id: 'development',
     label: 'Software Development',
     shortLabel: 'Engineering',
-    tagline: 'Boring code, delightful products.',
+    tagline: 'Full-stack implementation across React, Next.js, FastAPI, PostgreSQL, and APIs.',
     heroKicker: 'Full-stack Engineer',
-    heroHeadline: 'Build quiet systems that hold up under weight.',
+    heroHeadline: 'Build practical software systems that support real workflows.',
     introduction:
-      'I write full-stack TypeScript and Python for products that need to be correct, observable and pleasant to work in. Comfortable across data pipelines, AI workflows, and print-quality typesetting.',
-    featuredProjectIds: ['bible-glyph', 'ai-bible-translator', 'speech-therapy'],
+      'I work across frontend, backend, integration, and debugging tasks, with exposure to React, Next.js, Tailwind CSS, Python, FastAPI, PostgreSQL, JWT authentication, REST APIs, Git, GitLab, and Linux/Ubuntu workflows.',
+    featuredProjectIds: ['ai-bible-translator', 'bible-glyph', 'adaptive-portfolio'],
     highlightedSkillCategories: ['engineering', 'ai', 'infra'],
     resumeUrl: '/resume/your-name-engineering.pdf',
     primaryCta: { label: 'See engineering work', href: '#work' },
-    secondaryCta: { label: 'View source', href: 'https://github.com/yourname' },
+    secondaryCta: { label: 'Get in touch', href: '#contact' },
   },
 ];
 

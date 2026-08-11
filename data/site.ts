@@ -1,20 +1,21 @@
 import type { SiteConfig } from '@/lib/types';
 
-// PLACEHOLDER — replace with your own site metadata.
 export const site: SiteConfig = {
-  name: 'Alphin Vargheese — Portfolio',
-  domain: 'yourname.dev',
-  url: 'https://yourname.dev',
+  name: 'Alphin Vargheese - Portfolio',
+  domain: 'alphinvargheese.dev',
+  url: 'https://alphinvargheese.dev',
   defaultMode: 'product',
   description:
-    'Portfolio of Your Name — product manager, consultant, and software engineer building thoughtful tools at the edge of language, faith, and technology.',
+    'Portfolio of Alphin Vargheese, a technically grounded early-career professional exploring product, business, and software roles.',
   keywords: [
     'portfolio',
-    'product manager',
+    'product management',
+    'business analysis',
     'software engineer',
-    'consultant',
+    'software developer',
     'case study',
     'Bible translation',
+    'Bible publishing',
     'AI',
   ],
   locale: 'en-US',

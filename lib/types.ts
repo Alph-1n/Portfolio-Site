@@ -29,7 +29,6 @@ export interface ProjectLink {
 
 export interface RoleSummary {
   summary: string;
-  relevance: number; // 0-100
 }
 
 export interface Project {
@@ -39,6 +38,7 @@ export interface Project {
   subtitle: string;
   year: number;
   featured: boolean;
+  categories?: ModeId[];
   images: ProjectImage[];
   technologies: string[];
   responsibilities: string[];

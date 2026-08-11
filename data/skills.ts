@@ -1,47 +1,46 @@
 import type { SkillCategory } from '@/lib/types';
 
-// PLACEHOLDER — grouped so role modes can highlight a subset.
 export const skillCategories: SkillCategory[] = [
   {
     id: 'product',
     name: 'Product',
-    description: 'Discovery, framing, roadmapping and shipping — the parts that hold the team together.',
-    skills: ['Problem framing', 'User research', 'Roadmap shaping', 'Writing specs', 'Prioritisation', 'Launch craft'],
+    description: 'Developing experience in turning requirements, workflows, and constraints into usable product features.',
+    skills: ['Problem framing', 'User workflows', 'Requirements analysis', 'Feature breakdown', 'UI iteration', 'Product metrics'],
   },
   {
     id: 'design',
     name: 'Design',
-    description: 'Interaction, systems and typographic craft — with an eye on quiet detail.',
-    skills: ['Interaction design', 'Design systems', 'Typography', 'Motion (restrained)', 'Prototyping'],
+    description: 'Interface thinking focused on clarity, workflow fit, and reducing avoidable friction.',
+    skills: ['Interaction design', 'Responsive UI', 'Dark-mode considerations', 'Error states', 'Usability improvements'],
   },
   {
     id: 'research',
-    name: 'Research',
-    description: 'Understanding people, markets and the seams where the two disagree.',
-    skills: ['User interviews', 'Diary studies', 'Competitive teardown', 'Market shaping'],
+    name: 'Analysis',
+    description: 'Currently exploring product discovery, business analysis, and structured decision-making practices.',
+    skills: ['Workflow mapping', 'Functional requirements', 'Process friction', 'User journeys', 'Structured problem solving'],
   },
   {
     id: 'business',
     name: 'Business & Strategy',
-    description: 'Operating cadence, positioning, and pricing that survive contact with the roadmap.',
-    skills: ['Positioning', 'Pricing', 'GTM', 'Operating rhythm', 'Executive comms'],
+    description: 'Interest in applying technical understanding to business, consulting, and product-analysis contexts.',
+    skills: ['Business analysis', 'Product strategy', 'Decision support', 'Communication', 'Presentation', 'Structured feedback'],
   },
   {
     id: 'engineering',
     name: 'Engineering',
-    description: 'Full-stack TypeScript and Python, biased toward boring, correct code.',
-    skills: ['TypeScript', 'Next.js', 'Node', 'Python', 'Postgres', 'CLI ergonomics'],
+    description: 'Full-stack application development across modern web, backend, authentication, and integration work.',
+    skills: ['React', 'Next.js', 'Tailwind CSS', 'Python', 'FastAPI', 'PostgreSQL', 'REST APIs', 'JWT'],
   },
   {
     id: 'ai',
     name: 'AI Workflows',
-    description: 'Retrieval, provenance and evaluation for AI systems that need to be trustworthy.',
-    skills: ['LLM orchestration', 'RAG', 'Embeddings', 'Evals', 'Prompt design', 'Provenance UX'],
+    description: 'Exposure to AI-assisted development and machine-learning-oriented development workflows.',
+    skills: ['AI-assisted workflows', 'Python', 'Keras', 'TensorFlow', 'Matplotlib', 'Research-oriented development'],
   },
   {
     id: 'infra',
-    name: 'Infra',
-    description: 'Small, observable systems that hold up under weight.',
-    skills: ['Vercel / Cloudflare', 'Docker', 'Observability', 'CI/CD', 'Static-first delivery'],
+    name: 'Tools & Delivery',
+    description: 'Practical tooling for building, debugging, integrating, and maintaining software projects.',
+    skills: ['Git', 'GitLab', 'Linux / Ubuntu', 'Debugging', 'CORS issues', 'API integration', 'File handling'],
   },
 ];

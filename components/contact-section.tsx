@@ -1,6 +1,7 @@
 'use client';
 
 import { useMode } from './mode-context';
+import { profile } from '@/data/profile';
 import { socialLinks } from '@/data/social';
 import { Github, Linkedin, Mail, Twitter, Globe, ArrowUpRight, Download } from 'lucide-react';
 
@@ -32,7 +33,7 @@ export function ContactSection() {
               I reply within a day or two. Short notes preferred.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <a href="mailto:hello@yourname.dev" className="btn-primary focus-ring text-sm">
+              <a href={`mailto:${profile.email}`} className="btn-primary focus-ring text-sm">
                 Say hello
                 <ArrowUpRight className="h-4 w-4" />
               </a>

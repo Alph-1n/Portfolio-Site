@@ -53,7 +53,7 @@ export function ProjectCard({ project, mode, index }: ProjectCardProps) {
             {project.year}
           </span>
           <span className="rounded-full border border-white/20 bg-black/30 px-2.5 py-1 text-[10px] font-medium uppercase tracking-widest text-white backdrop-blur">
-            {roleSummary.relevance}% match · {mode.shortLabel}
+            {mode.shortLabel}
           </span>
         </div>
         <div className="absolute right-5 top-5 z-30 opacity-0 transition group-hover:opacity-100">

@@ -1,6 +1,5 @@
 import type { Profile } from '@/lib/types';
 
-// PLACEHOLDER — replace with your real profile copy.
 export const profile: Profile = {
   fullName: 'Alphin Vargheese',
   shortName: 'A.V.',
@@ -8,8 +7,8 @@ export const profile: Profile = {
   timezone: 'IST (UTC+5:30)',
   pronouns: 'he/him',
   email: 'alphinvargheese06@gmail.com',
-  availability: 'Open to Work.',
-  bio: 'Product-minded engineer working across AI, publishing, and accessible learning.',
+  availability: 'Open to early-career product, business, and software roles.',
+  bio: 'Technically grounded early-career professional exploring product, business, and technology roles.',
   longBio:
-    'I build small, deliberate products at the intersection of language, faith and technology. Recent work spans an AI translation workflow for under-resourced languages, a typesetting pipeline that turns USFM into print-ready PDFs, and a gamified speech-therapy application for early learners. I care about clarity, craft and the quiet parts of a product that most people never notice.',
+    'I come from a software-development background and am increasingly drawn to work that connects technical execution with structured problem-solving, product thinking, and business analysis. Recent work has involved full-stack applications, specialist publishing workflows, authentication, APIs, and UI/product iteration. I am developing experience in product discovery, user workflows, requirements analysis, and data-informed decision making while staying grounded in practical engineering.',
 };

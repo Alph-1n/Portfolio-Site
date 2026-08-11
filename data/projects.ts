@@ -1,51 +1,43 @@
 import type { Project } from '@/lib/types';
 
-// PLACEHOLDER — replace with your real project entries and images in /public/projects/*.
 export const projects: Project[] = [
   {
     id: 'bible-glyph',
     slug: 'bible-glyph',
-    title: 'Bible Glyph',
-    subtitle: 'USFM → Typst → print-ready PDF publishing pipeline.',
+    title: 'Bible Glyph / Bible Grace',
+    subtitle: 'Specialist publishing workflow for transforming structured Bible content into publication-ready PDFs.',
     year: 2025,
     featured: true,
+    categories: ['product', 'business', 'development'],
     accent: 'from-[hsl(220_90%_60%)] via-[hsl(260_80%_60%)] to-[hsl(190_90%_60%)]',
     images: [
       { src: '/projects/bible-glyph/cover.svg', alt: 'Bible Glyph typesetting sample', width: 1600, height: 1000 },
       { src: '/projects/bible-glyph/detail.svg', alt: 'Bible Glyph verse layout detail', width: 1600, height: 1000 },
     ],
-    technologies: ['TypeScript', 'Node.js', 'Typst', 'USFM', 'PDF', 'CLI'],
+    technologies: ['Python', 'Typst', 'USFM', 'PDF generation', 'File uploads', 'Templates', 'Search'],
     responsibilities: [
-      'Designed the USFM parsing model and typesetting grammar.',
-      'Built the Typst template system for footnotes, cross-refs and poetry.',
-      'Owned CLI ergonomics and the publishing preview loop.',
+      'Worked on USFM file handling, processing, Typst integration, and PDF generation workflows.',
+      'Improved specialist publishing interactions around project imports, files, templates, fonts, and rendering controls.',
+      'Considered product requirements such as clearer error states, dark-mode compatibility, layout controls, and conversion feedback.',
     ],
     results: [
-      'Reproducible, diff-friendly Bible typesetting.',
-      'Cut a 3-week typesetting cycle to a single afternoon.',
-      'Print-quality PDF output with proper hanging indents and drop caps.',
+      'Structured the path from USFM files through conversion and Typst rendering into generated PDFs.',
+      'Supported a more understandable workflow for managing files, imports, rendering options, and output configuration.',
+      'Identified product trade-offs around configurability, error handling, layout parity, and specialist publishing needs.',
     ],
-    sourceCodeUrl: 'https://github.com/yourname/bible-glyph',
-    liveUrl: 'https://bibleglyph.example.com',
-    links: [
-      { label: 'Case study', href: '/projects/bible-glyph' },
-      { label: 'Source', href: 'https://github.com/yourname/bible-glyph' },
-    ],
+    links: [{ label: 'Case study', href: '/projects/bible-glyph' }],
     roleSummaries: {
       product: {
         summary:
-          'Reframed "digital typesetting" as a developer-experience problem, then shipped a template system publishers can actually version-control.',
-        relevance: 78,
+          'A strong product case study about improving a specialist publishing workflow: file management, conversion actions, error states, template controls, and PDF output readability.',
       },
       business: {
         summary:
-          'Turns a bespoke, month-long publishing engagement into a repeatable weekend workflow — margin, speed and correctness in one motion.',
-        relevance: 72,
+          'A workflow-analysis project focused on translating publishing requirements into clear application behaviour, configuration needs, and edge-case handling.',
       },
       development: {
         summary:
-          'A small, well-typed TypeScript pipeline that composes a USFM parser, a Typst template layer, and a deterministic PDF build step.',
-        relevance: 96,
+          'A technical publishing system involving USFM processing, Typst integration, file handling, PDF generation, rendering configuration, and debugging compile/rendering issues.',
       },
     },
   },
@@ -53,82 +45,74 @@ export const projects: Project[] = [
     id: 'ai-bible-translator',
     slug: 'ai-bible-translator',
     title: 'AI Bible Translator',
-    subtitle: 'Full-stack AI translation workflow for under-resourced languages.',
+    subtitle: 'Full-stack translation workflow application with authentication, assignments, and role-based behaviour.',
     year: 2025,
     featured: true,
+    categories: ['product', 'business', 'development'],
     accent: 'from-[hsl(280_80%_60%)] via-[hsl(220_90%_60%)] to-[hsl(190_90%_60%)]',
     images: [
       { src: '/projects/ai-bible-translator/cover.svg', alt: 'AI Bible Translator workspace', width: 1600, height: 1000 },
     ],
-    technologies: ['Next.js', 'TypeScript', 'Python', 'LLMs', 'Postgres', 'Vector search'],
+    technologies: ['React', 'Next.js', 'FastAPI', 'PostgreSQL', 'JWT', 'REST APIs'],
     responsibilities: [
-      'Designed the review-first translator UX for community linguists.',
-      'Built the retrieval + reasoning pipeline over parallel corpora.',
-      'Shipped versioned draft history and per-verse provenance.',
+      'Worked on React/Next.js frontend flows connected to a FastAPI backend and PostgreSQL database.',
+      'Handled authentication flows, JWT-based access, role-based behaviour, and project/assignment workflows.',
+      'Integrated REST APIs, client-side state persistence, and debugging around CORS and API behaviour.',
     ],
     results: [
-      'Cut first-draft translation time by ~60% in pilots.',
-      'Every verse output is auditable back to source citations.',
-      'Handled 3 language pairs at pilot with a single reviewer per team.',
+      'Built and connected database-backed translation workflows across frontend and backend surfaces.',
+      'Mapped project, assignment, authentication, and role-based requirements into application behaviour.',
+      'Developed product thinking through workflow interpretation, interface iteration, and technical constraints.',
     ],
-    sourceCodeUrl: 'https://github.com/yourname/ai-bible-translator',
     links: [{ label: 'Case study', href: '/projects/ai-bible-translator' }],
     roleSummaries: {
       product: {
         summary:
-          'Product-led AI: I anchored the workflow on the reviewer, not the model, and made confidence and provenance first-class UI.',
-        relevance: 98,
+          'Product thinking as a technical contributor: understanding translation workflows, user roles, project journeys, authentication, access, and feature requirements.',
       },
       business: {
         summary:
-          'A defensible workflow product for a niche where accuracy, provenance and community trust are the moat — not raw model quality.',
-        relevance: 88,
+          'A structured workflow project involving user roles, functional requirements, application behaviour, and process friction across translation assignments.',
       },
       development: {
         summary:
-          'Retrieval-augmented translation with strict provenance: parallel corpora, verse-level embeddings, and a review-first editing surface.',
-        relevance: 90,
+          'Full-stack implementation across React/Next.js, FastAPI, PostgreSQL, JWT authentication, REST API integration, state persistence, and debugging.',
       },
     },
   },
   {
-    id: 'speech-therapy',
-    slug: 'speech-therapy',
-    title: 'Gamified Speech Therapy',
-    subtitle: 'A playful practice app for early-childhood speech goals.',
-    year: 2024,
+    id: 'adaptive-portfolio',
+    slug: 'adaptive-portfolio',
+    title: 'Adaptive Portfolio Website',
+    subtitle: 'One personal portfolio designed to shift emphasis across product, business, and software roles.',
+    year: 2026,
     featured: true,
-    accent: 'from-[hsl(20_90%_60%)] via-[hsl(340_80%_60%)] to-[hsl(280_80%_60%)]',
-    images: [
-      { src: '/projects/speech-therapy/cover.svg', alt: 'Speech therapy app screen', width: 1600, height: 1000 },
-    ],
-    technologies: ['React Native', 'TypeScript', 'On-device ML', 'Speech APIs'],
+    categories: ['product', 'business', 'development'],
+    accent: 'from-[hsl(165_70%_45%)] via-[hsl(210_80%_55%)] to-[hsl(330_75%_58%)]',
+    images: [],
+    technologies: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Local data files', 'Responsive UI'],
     responsibilities: [
-      'Co-designed the therapist-parent-child loop with practising SLPs.',
-      'Built the pronunciation scoring and gentle-retry system.',
-      'Shipped the reward economy without dark patterns.',
+      'Structured one shared portfolio around role-based modes instead of separate role-specific sites.',
+      'Kept project and experience data shared while allowing hero copy, project ordering, highlighted skills, CTAs, and resume links to change by mode.',
+      'Used a simple local-data architecture without introducing a backend or database.',
     ],
     results: [
-      'Kids practised 3.2× more per week vs. paper homework.',
-      'Therapists reported clearer progress signals week-over-week.',
-      'No IAP, no ads — a calm alternative in a noisy category.',
+      'Created a maintainable foundation for Product/APM, Business/Consulting, and Software Development portfolio views.',
+      'Preserved a single professional identity built around technical foundation, structured problem-solving, and growing product/business orientation.',
     ],
-    links: [{ label: 'Case study', href: '/projects/speech-therapy' }],
+    links: [{ label: 'Case study', href: '/projects/adaptive-portfolio' }],
     roleSummaries: {
       product: {
         summary:
-          'A rare category where the primary user is neither the buyer nor the payer — the design work was almost entirely about trust and rhythm.',
-        relevance: 92,
+          'A portfolio treated as a product: one shared information architecture with role-based emphasis for different visitor intents.',
       },
       business: {
         summary:
-          'Positioned against ad-heavy incumbents: fewer sessions, higher completion, calmer parents. A wedge into clinic-led distribution.',
-        relevance: 90,
+          'A positioning and information-architecture exercise around tailoring the same evidence for product, business, and software audiences.',
       },
       development: {
         summary:
-          'On-device speech scoring, a small state machine for the reward loop, and a boring-in-a-good-way sync layer for therapists.',
-        relevance: 74,
+          'A static Next.js portfolio using typed local data, reusable components, responsive styling, and a lightweight mode selector.',
       },
     },
   },
