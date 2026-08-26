@@ -1,38 +1,74 @@
 'use client';
 
-import { useMode } from './mode-context';
-import { orderedFeaturedProjects } from '@/data/projects';
+import { useState } from 'react';
+import { projects } from '@/data/projects';
 import { ProjectCard } from './project-card';
+import { Sparkles, Code, Terminal, Layers } from 'lucide-react';
+import { cn } from '@/lib/utils';
+
+const categories = ['All', 'Full-Stack', 'Backend & AI', 'Mobile & Audio', 'Academic / ML'] as const;
 
 export function FeaturedProjects() {
-  const { mode } = useMode();
-  const list = orderedFeaturedProjects(mode.featuredProjectIds);
+  const [activeCategory, setActiveCategory] = useState<string>('All');
+
+  const filteredProjects = activeCategory === 'All'
+    ? projects
+    : projects.filter((p) => p.category === activeCategory);
 
   return (
-    <section id="work" className="container relative py-20 sm:py-28">
-      <div className="mb-12 flex items-end justify-between gap-6">
+    <section id="projects" className="container max-w-6xl mx-auto px-4 sm:px-6 py-20 sm:py-28 relative">
+      {/* Header */}
+      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12">
         <div>
-          <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Selected work</p>
-          <h2 className="mt-3 headline text-balance text-4xl sm:text-5xl">
-            Ordered for the <span className="italic">{mode.shortLabel.toLowerCase()}</span> lens.
+          <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-blue-500 mb-2">
+            <Layers className="h-3.5 w-3.5" />
+            <span>Featured Software Engineering</span>
+          </div>
+          <h2 className="apple-headline text-3xl sm:text-4xl md:text-5xl text-foreground">
+            Featured Projects & Apps.
           </h2>
         </div>
-        <p className="hidden max-w-xs text-sm text-muted-foreground sm:block">
-          The same three projects appear across every mode — the framing shifts.
+        <p className="max-w-md text-sm text-muted-foreground leading-relaxed">
+          Production applications, digital publishing pipelines, and full-stack systems built with modern web technologies and AI workflows.
         </p>
       </div>
 
-      <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
-        {list.map((p, i) => (
+      {/* Dynamic Category Filter Pills */}
+      <div className="flex flex-wrap items-center gap-2 mb-10 pb-2">
+        {categories.map((cat) => {
+          const active = activeCategory === cat;
+          return (
+            <button
+              key={cat}
+              onClick={() => setActiveCategory(cat)}
+              className={cn(
+                'focus-ring rounded-full px-4 py-2 text-xs font-medium transition-all duration-200',
+                active
+                  ? 'bg-foreground text-background shadow-md shadow-black/10 dark:shadow-white/5'
+                  : 'bg-card/60 border border-border/60 text-muted-foreground hover:text-foreground hover:bg-muted/70',
+              )}
+            >
+              {cat}
+            </button>
+          );
+        })}
+      </div>
+
+      {/* Projects Bento Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {filteredProjects.map((p) => (
           <div
             key={p.id}
-            className={i === 0 ? 'lg:col-span-2 animate-fade-up' : 'animate-fade-up'}
-            style={{ animationDelay: `${i * 90}ms` }}
+            className={cn(
+              'transition-all duration-300',
+              p.id === 'finance-tracker' && activeCategory === 'All' ? 'md:col-span-2' : '',
+            )}
           >
-            <ProjectCard project={p} mode={mode} index={i} />
+            <ProjectCard project={p} featured={p.id === 'finance-tracker'} />
           </div>
         ))}
       </div>
     </section>
   );
 }
+

@@ -2,124 +2,104 @@ import type { Project } from '@/lib/types';
 
 export const projects: Project[] = [
   {
+    id: 'finance-tracker',
+    slug: 'finance-tracker',
+    title: 'Personal Finance Tracker',
+    subtitle: 'Dynamic web application for real-time expense tracking, category analytics, and financial management.',
+    description:
+      'A sleek, responsive personal finance platform built with Next.js, React, and Tailwind CSS. Features dynamic transaction logging, real-time balance calculations, spending breakdown visualizations, and intuitive budget categorization designed for seamless everyday tracking.',
+    year: '2026',
+    featured: true,
+    category: 'Full-Stack',
+    accent: 'from-emerald-500/20 via-cyan-500/15 to-blue-600/20',
+    technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Vercel', 'Responsive UI', 'State Management'],
+    highlights: [
+      'Built a modern, responsive web application for real-time personal income and expenditure management.',
+      'Designed interactive transaction entry with category-based filtering, instant balance updates, and spending summaries.',
+      'Implemented clean client-side state handling and deployed seamlessly to Vercel for fast edge delivery.',
+    ],
+    liveUrl: 'https://finance-tracker-app-lime.vercel.app/',
+    githubUrl: 'https://github.com/Alph-1n',
+    isWorkingDemo: true,
+  },
+  {
+    id: 'vachan-ai',
+    slug: 'vachan-ai',
+    title: 'Vachan AI — Translation Platform',
+    subtitle: 'AI-assisted translation platform with async job polling, JWT authentication, and role-based workflows.',
+    description:
+      'Full-stack AI translation product built at Bridge Connectivity Solutions. Features React/Next.js frontend user flows connected to FastAPI backend services and PostgreSQL database, handling user authentication, asynchronous translation job queues, project assignments, and resilient error states.',
+    year: '2025 – Present',
+    featured: true,
+    category: 'Full-Stack',
+    accent: 'from-purple-500/20 via-indigo-500/15 to-blue-500/20',
+    technologies: ['React', 'Next.js', 'Python', 'FastAPI', 'PostgreSQL', 'JWT Auth', 'REST APIs', 'Async Polling'],
+    highlights: [
+      'Engineered React/Next.js frontend flows for authentication, project dashboards, and translation review workspaces.',
+      'Integrated REST APIs with FastAPI backend, implementing JWT session security and asynchronous job status polling.',
+      'Handled client-side state persistence, complex edge-case validation, and robust API error recovery.',
+    ],
+    githubUrl: 'https://github.com/Alph-1n',
+  },
+  {
     id: 'bible-glyph',
     slug: 'bible-glyph',
-    title: 'Bible Glyph / Bible Grace',
-    subtitle: 'Specialist publishing workflow for transforming structured Bible content into publication-ready PDFs.',
-    year: 2025,
+    title: 'Bible Glyph / Publishing Pipeline',
+    subtitle: 'High-precision automated publishing system converting structured USFM Bible content into publication-ready PDFs.',
+    description:
+      'A Python-based specialist publishing application used by translation and publication teams. Validates structured USFM files, detects duplicate/missing field syntax errors before publication, and renders high-quality typography PDFs through Typst integration with client-configurable template workflows.',
+    year: '2025 – Present',
     featured: true,
-    categories: ['product', 'business', 'development'],
-    accent: 'from-[hsl(220_90%_60%)] via-[hsl(260_80%_60%)] to-[hsl(190_90%_60%)]',
-    images: [
-      { src: '/projects/bible-glyph/cover.svg', alt: 'Bible Glyph typesetting sample', width: 1600, height: 1000 },
-      { src: '/projects/bible-glyph/detail.svg', alt: 'Bible Glyph verse layout detail', width: 1600, height: 1000 },
+    category: 'Backend & AI',
+    accent: 'from-blue-500/20 via-sky-500/15 to-teal-500/20',
+    technologies: ['Python', 'Typst', 'USFM Parser', 'PDF Engine', 'Validation Algorithms', 'Linux', 'GitLab'],
+    highlights: [
+      'Developed file/folder processing workflows, duplicate-tag detection, and required-field validation for USFM syntax.',
+      'Implemented a client-configurable template engine in Typst for custom margins, multi-column verse layouts, and font rendering.',
+      'Streamlined upload restrictions, file management, error diagnostics, and rendering pipeline reliability.',
     ],
-    technologies: ['Python', 'Typst', 'USFM', 'PDF generation', 'File uploads', 'Templates', 'Search'],
-    responsibilities: [
-      'Worked on USFM file handling, processing, Typst integration, and PDF generation workflows.',
-      'Improved specialist publishing interactions around project imports, files, templates, fonts, and rendering controls.',
-      'Considered product requirements such as clearer error states, dark-mode compatibility, layout controls, and conversion feedback.',
-    ],
-    results: [
-      'Structured the path from USFM files through conversion and Typst rendering into generated PDFs.',
-      'Supported a more understandable workflow for managing files, imports, rendering options, and output configuration.',
-      'Identified product trade-offs around configurability, error handling, layout parity, and specialist publishing needs.',
-    ],
-    links: [{ label: 'Case study', href: '/projects/bible-glyph' }],
-    roleSummaries: {
-      product: {
-        summary:
-          'A strong product case study about improving a specialist publishing workflow: file management, conversion actions, error states, template controls, and PDF output readability.',
-      },
-      business: {
-        summary:
-          'A workflow-analysis project focused on translating publishing requirements into clear application behaviour, configuration needs, and edge-case handling.',
-      },
-      development: {
-        summary:
-          'A technical publishing system involving USFM processing, Typst integration, file handling, PDF generation, rendering configuration, and debugging compile/rendering issues.',
-      },
-    },
+    githubUrl: 'https://github.com/Alph-1n',
   },
   {
-    id: 'ai-bible-translator',
-    slug: 'ai-bible-translator',
-    title: 'AI Bible Translator',
-    subtitle: 'Full-stack translation workflow application with authentication, assignments, and role-based behaviour.',
-    year: 2025,
-    featured: true,
-    categories: ['product', 'business', 'development'],
-    accent: 'from-[hsl(280_80%_60%)] via-[hsl(220_90%_60%)] to-[hsl(190_90%_60%)]',
-    images: [
-      { src: '/projects/ai-bible-translator/cover.svg', alt: 'AI Bible Translator workspace', width: 1600, height: 1000 },
+    id: 'fluent-mobile',
+    slug: 'fluent-mobile',
+    title: 'Fluent Mobile & Audio Processing',
+    subtitle: 'Mobile application workflows with audio capture and cross-platform API integration.',
+    description:
+      'Mobile client application supporting digital translation workflows and audio processing. Explored modern audio-recording solutions including Expo Audio, evaluating migration paths following FFmpeg Kit deprecation, and connecting mobile interfaces to backend endpoints.',
+    year: '2025',
+    featured: false,
+    category: 'Mobile & Audio',
+    accent: 'from-amber-500/20 via-orange-500/15 to-rose-500/20',
+    technologies: ['Flutter', 'React Native', 'Expo Audio', 'Python', 'REST APIs', 'Mobile UX'],
+    highlights: [
+      'Built mobile interface flows and integrated API services for translation data and audio recording.',
+      'Researched and benchmarked mobile audio alternatives after FFmpeg Kit deprecation, documenting findings for team implementation.',
+      'Ensured seamless cross-platform performance across Android and iOS environments.',
     ],
-    technologies: ['React', 'Next.js', 'FastAPI', 'PostgreSQL', 'JWT', 'REST APIs'],
-    responsibilities: [
-      'Worked on React/Next.js frontend flows connected to a FastAPI backend and PostgreSQL database.',
-      'Handled authentication flows, JWT-based access, role-based behaviour, and project/assignment workflows.',
-      'Integrated REST APIs, client-side state persistence, and debugging around CORS and API behaviour.',
-    ],
-    results: [
-      'Built and connected database-backed translation workflows across frontend and backend surfaces.',
-      'Mapped project, assignment, authentication, and role-based requirements into application behaviour.',
-      'Developed product thinking through workflow interpretation, interface iteration, and technical constraints.',
-    ],
-    links: [{ label: 'Case study', href: '/projects/ai-bible-translator' }],
-    roleSummaries: {
-      product: {
-        summary:
-          'Product thinking as a technical contributor: understanding translation workflows, user roles, project journeys, authentication, access, and feature requirements.',
-      },
-      business: {
-        summary:
-          'A structured workflow project involving user roles, functional requirements, application behaviour, and process friction across translation assignments.',
-      },
-      development: {
-        summary:
-          'Full-stack implementation across React/Next.js, FastAPI, PostgreSQL, JWT authentication, REST API integration, state persistence, and debugging.',
-      },
-    },
+    githubUrl: 'https://github.com/Alph-1n',
   },
   {
-    id: 'adaptive-portfolio',
-    slug: 'adaptive-portfolio',
-    title: 'Adaptive Portfolio Website',
-    subtitle: 'One personal portfolio designed to shift emphasis across product, business, and software roles.',
-    year: 2026,
-    featured: true,
-    categories: ['product', 'business', 'development'],
-    accent: 'from-[hsl(165_70%_45%)] via-[hsl(210_80%_55%)] to-[hsl(330_75%_58%)]',
-    images: [],
-    technologies: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Local data files', 'Responsive UI'],
-    responsibilities: [
-      'Structured one shared portfolio around role-based modes instead of separate role-specific sites.',
-      'Kept project and experience data shared while allowing hero copy, project ordering, highlighted skills, CTAs, and resume links to change by mode.',
-      'Used a simple local-data architecture without introducing a backend or database.',
+    id: 'speech-therapy',
+    slug: 'speech-therapy',
+    title: 'Gamified Speech Therapy App',
+    subtitle: 'Speech rehabilitation platform using acoustic MFCC analysis and Levenshtein phonetics.',
+    description:
+      'Academic capstone project designing a therapist-led speech therapy application. Enables therapists to assign pronunciation exercises, while evaluating patient speech attempts via Speech-to-Text (STT), Levenshtein string distance, and Mel-Frequency Cepstral Coefficients (MFCC) feature extraction.',
+    year: '2024 – 2025',
+    featured: false,
+    category: 'Academic / ML',
+    accent: 'from-pink-500/20 via-rose-500/15 to-purple-500/20',
+    technologies: ['Python', 'Flask', 'Speech-to-Text (STT)', 'MFCC Audio Analysis', 'Levenshtein Distance', 'Keras'],
+    highlights: [
+      'Implemented acoustic signal processing pipeline using MFCC extraction to measure pronunciation fidelity.',
+      'Developed therapist dashboard for tracking patient rehabilitation metrics, error patterns, and session history.',
+      'Engineered an automated scoring engine combining phonetic Levenshtein distance with spectral acoustic matching.',
     ],
-    results: [
-      'Created a maintainable foundation for Product/APM, Business/Consulting, and Software Development portfolio views.',
-      'Preserved a single professional identity built around technical foundation, structured problem-solving, and growing product/business orientation.',
-    ],
-    links: [{ label: 'Case study', href: '/projects/adaptive-portfolio' }],
-    roleSummaries: {
-      product: {
-        summary:
-          'A portfolio treated as a product: one shared information architecture with role-based emphasis for different visitor intents.',
-      },
-      business: {
-        summary:
-          'A positioning and information-architecture exercise around tailoring the same evidence for product, business, and software audiences.',
-      },
-      development: {
-        summary:
-          'A static Next.js portfolio using typed local data, reusable components, responsive styling, and a lightweight mode selector.',
-      },
-    },
+    githubUrl: 'https://github.com/Alph-1n',
   },
 ];
 
 export const getProjectBySlug = (slug: string) =>
   projects.find((p) => p.slug === slug);
 
-export const orderedFeaturedProjects = (ids: string[]) =>
-  ids.map((id) => projects.find((p) => p.id === id)).filter(Boolean) as Project[];

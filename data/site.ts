@@ -1,24 +1,27 @@
 import type { SiteConfig } from '@/lib/types';
 
 export const site: SiteConfig = {
-  name: 'Alphin Vargheese - Portfolio',
+  name: 'Alphin Vargheese — Software Developer & Full-Stack Engineer',
   domain: 'alphinvargheese.dev',
   url: 'https://alphinvargheese.dev',
-  defaultMode: 'product',
   description:
-    'Portfolio of Alphin Vargheese, a technically grounded early-career professional exploring product, business, and software roles.',
+    'Software Developer with 1+ year of experience building AI-assisted web applications, API integrations, and digital publishing systems across React, Next.js, Python, and FastAPI.',
   keywords: [
-    'portfolio',
-    'product management',
-    'business analysis',
     'software engineer',
-    'software developer',
-    'case study',
-    'Bible translation',
-    'Bible publishing',
-    'AI',
+    'full stack developer',
+    'frontend engineer',
+    'React',
+    'Next.js',
+    'FastAPI',
+    'Python',
+    'PostgreSQL',
+    'TypeScript',
+    'Tailwind CSS',
+    'Linux',
+    'portfolio',
   ],
   locale: 'en-US',
-  themeColor: '#0a0b10',
+  themeColor: '#000000',
   ogImage: '/og.png',
 };
+

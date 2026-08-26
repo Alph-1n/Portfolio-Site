@@ -3,31 +3,37 @@ import type { WorkExperience } from '@/lib/types';
 export const experience: WorkExperience[] = [
   {
     id: 'bridge-connectivity-solutions',
-    role: 'Software / Product Development',
+    role: 'Junior Software Developer',
     company: 'Bridge Connectivity Solutions Pvt. Ltd.',
-    start: '2025',
+    location: 'New Delhi, India',
+    start: 'May 2025',
     end: 'Present',
     summary:
-      'Software and product-development work involving internal and specialised tools, full-stack implementation, UI iteration, debugging, and integration.',
+      'Developing AI-assisted, workflow-driven software products, automated digital publishing pipelines, and mobile audio applications across web and backend stacks.',
     highlights: [
-      'Worked across React, Next.js, Tailwind CSS, Python, FastAPI, PostgreSQL, REST APIs, and JWT authentication.',
-      'Contributed to application workflows involving frontend/backend integration, product/UI iteration, and technical constraints.',
-      'Used Git, GitLab, and Linux/Ubuntu workflows while debugging application and API-related issues.',
+      'Contributed to Bible Glyph (Python publishing engine): built file/folder handling, duplicate tag and required-field validation, upload restrictions, and custom Typst template generation.',
+      'Developed core user flows for Vachan AI (AI translation platform): implemented authentication, API-connected processing, asynchronous job polling, and client-side state handling.',
+      'Created and maintained comprehensive technical documentation for workflows, system architecture, integration decisions, and troubleshooting guides.',
+      'Researched modern mobile audio processing alternatives after FFmpeg Kit deprecation, evaluating Expo Audio implementations for the engineering team.',
+      'Leveraged ChatGPT & Codex for rapid prototyping, troubleshooting edge cases, code verification, and automating unit test construction.',
     ],
-    tags: ['React', 'Next.js', 'FastAPI', 'PostgreSQL', 'REST APIs', 'GitLab'],
+    tags: ['React', 'Next.js', 'Python', 'FastAPI', 'PostgreSQL', 'Typst', 'REST APIs', 'JWT', 'GitLab', 'Linux / Ubuntu'],
   },
   {
     id: 'elkanio-research-labs',
-    role: 'Intern',
+    role: 'Machine Learning & Development Intern',
     company: 'Elkanio Research Labs',
-    start: 'Internship',
+    location: 'Kochi, India',
+    start: '2024',
     end: 'Completed',
     summary:
-      'Machine-learning and research-oriented development exposure using Python and common ML/data-visualisation tools.',
+      'Gained hands-on experience in machine learning pipelines, Python data processing, and research-oriented application development.',
     highlights: [
-      'Worked with Python, Keras, TensorFlow, and Matplotlib.',
-      'Gained exposure to research-oriented software development and experimentation workflows.',
+      'Built neural network prototypes using Python, Keras, and TensorFlow for predictive classification tasks.',
+      'Created data visualization dashboards using Matplotlib and Pandas for exploratory data analysis.',
+      'Collaborated on code review, algorithmic optimization, and experimental tracking.',
     ],
-    tags: ['Python', 'Keras', 'TensorFlow', 'Matplotlib'],
+    tags: ['Python', 'TensorFlow', 'Keras', 'Matplotlib', 'Data Analysis'],
   },
 ];
+

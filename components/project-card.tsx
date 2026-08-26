@@ -1,84 +1,149 @@
 'use client';
 
-import Image from 'next/image';
-import Link from 'next/link';
 import type { Project } from '@/lib/types';
-import type { RoleMode } from '@/lib/types';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, Github, Sparkles, CheckCircle2, Layers, ExternalLink } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { useState } from 'react';
 
 interface ProjectCardProps {
   project: Project;
-  mode: RoleMode;
-  index: number;
+  featured?: boolean;
 }
 
-export function ProjectCard({ project, mode, index }: ProjectCardProps) {
-  const roleSummary = project.roleSummaries[mode.id];
-  const cover = project.images[0];
-  const [imgOk, setImgOk] = useState(true);
+const categoryColors: Record<string, { badge: string; border: string; glow: string }> = {
+  'Full-Stack': {
+    badge: 'bg-emerald-500/10 text-emerald-400 border-emerald-500/30',
+    border: 'border-emerald-500/20 hover:border-emerald-500/50',
+    glow: 'from-emerald-500/20 via-teal-500/10 to-transparent',
+  },
+  'Backend & AI': {
+    badge: 'bg-blue-500/10 text-blue-400 border-blue-500/30',
+    border: 'border-blue-500/20 hover:border-blue-500/50',
+    glow: 'from-blue-500/20 via-indigo-500/10 to-transparent',
+  },
+  'Mobile & Audio': {
+    badge: 'bg-amber-500/10 text-amber-400 border-amber-500/30',
+    border: 'border-amber-500/20 hover:border-amber-500/50',
+    glow: 'from-amber-500/20 via-orange-500/10 to-transparent',
+  },
+  'Academic / ML': {
+    badge: 'bg-purple-500/10 text-purple-400 border-purple-500/30',
+    border: 'border-purple-500/20 hover:border-purple-500/50',
+    glow: 'from-purple-500/20 via-pink-500/10 to-transparent',
+  },
+};
+
+export function ProjectCard({ project, featured = false }: ProjectCardProps) {
+  const theme = categoryColors[project.category] ?? {
+    badge: 'bg-blue-500/10 text-blue-400 border-blue-500/30',
+    border: 'border-border/60 hover:border-blue-500/40',
+    glow: 'from-blue-500/15 via-purple-500/10 to-transparent',
+  };
 
   return (
-    <Link
-      href={`/projects/${project.slug}`}
-      className="focus-ring group relative flex flex-col overflow-hidden rounded-3xl border border-border/60 bg-card/30 backdrop-blur-md transition duration-500 hover:bg-card/50"
-      style={{ animationDelay: `${index * 80}ms` }}
+    <div
+      className={cn(
+        'glass-card group relative flex flex-col justify-between overflow-hidden rounded-[2rem] p-6 sm:p-8 transition-all duration-300',
+        featured
+          ? 'border-emerald-500/40 bg-gradient-to-br from-emerald-950/30 via-card/80 to-blue-950/30 shadow-xl shadow-emerald-500/5'
+          : `${theme.border} bg-card/60`,
+      )}
     >
-      <div className="relative aspect-[16/10] w-full overflow-hidden">
-        <div
-          aria-hidden
-          className={cn(
-            'absolute inset-0 bg-gradient-to-br opacity-90 transition duration-700 group-hover:scale-[1.03]',
-            project.accent,
-          )}
-        />
-        {imgOk && cover ? (
-          <Image
-            src={cover.src}
-            alt={cover.alt}
-            fill
-            sizes="(min-width: 1024px) 640px, 100vw"
-            className="relative z-10 object-cover mix-blend-luminosity opacity-90 transition duration-700 group-hover:scale-[1.04] group-hover:opacity-100"
-            onError={() => setImgOk(false)}
-          />
-        ) : (
-          <div className="relative z-10 flex h-full w-full items-center justify-center">
-            <span className="headline text-6xl italic text-white/70">{project.title.split(' ')[0]}</span>
-          </div>
+      {/* Ambient background glow */}
+      <div
+        aria-hidden
+        className={cn(
+          'pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-gradient-to-br opacity-30 blur-3xl transition duration-500 group-hover:opacity-70',
+          theme.glow,
         )}
-        <div className="absolute inset-x-0 bottom-0 z-20 h-1/2 bg-gradient-to-t from-black/60 to-transparent" />
-        <div className="absolute left-5 top-5 z-30 flex items-center gap-2">
-          <span className="rounded-full border border-white/20 bg-black/30 px-2.5 py-1 text-[10px] font-medium uppercase tracking-widest text-white backdrop-blur">
-            {project.year}
-          </span>
-          <span className="rounded-full border border-white/20 bg-black/30 px-2.5 py-1 text-[10px] font-medium uppercase tracking-widest text-white backdrop-blur">
-            {mode.shortLabel}
-          </span>
-        </div>
-        <div className="absolute right-5 top-5 z-30 opacity-0 transition group-hover:opacity-100">
-          <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-white text-black">
-            <ArrowUpRight className="h-4 w-4" />
-          </span>
-        </div>
-      </div>
-      <div className="flex flex-col gap-4 p-6 sm:p-8">
+      />
+
+      <div className="relative z-10 flex flex-col h-full justify-between">
+        {/* Top bar: Category + Year + Working Demo Badge */}
         <div>
-          <h3 className="headline text-2xl sm:text-3xl">{project.title}</h3>
-          <p className="mt-2 text-sm text-muted-foreground">{project.subtitle}</p>
+          <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
+            <div className="flex items-center gap-2">
+              <span className={cn('rounded-full border px-3 py-1 text-[11px] font-semibold backdrop-blur-md', theme.badge)}>
+                {project.category}
+              </span>
+              {project.isWorkingDemo && (
+                <span className="inline-flex items-center gap-1 rounded-full border border-emerald-500/40 bg-emerald-500/15 px-3 py-1 text-[11px] font-bold text-emerald-400 backdrop-blur-md shadow-sm shadow-emerald-500/20">
+                  <Sparkles className="h-3 w-3" />
+                  Live Working Demo
+                </span>
+              )}
+            </div>
+            <span className="text-xs font-mono text-muted-foreground">{project.year}</span>
+          </div>
+
+          {/* Title & Subtitle */}
+          <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-foreground group-hover:text-blue-400 transition-colors">
+            {project.title}
+          </h3>
+          <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
+            {project.subtitle}
+          </p>
+
+          {/* Highlights */}
+          <ul className="mt-5 space-y-2.5 text-xs sm:text-sm text-foreground/85">
+            {project.highlights.map((h, i) => (
+              <li key={i} className="flex items-start gap-2.5">
+                <CheckCircle2 className="h-4 w-4 shrink-0 text-blue-400 mt-0.5" />
+                <span>{h}</span>
+              </li>
+            ))}
+          </ul>
         </div>
-        <p className="text-sm leading-relaxed text-foreground/85">{roleSummary.summary}</p>
-        <div className="flex flex-wrap gap-1.5 pt-1">
-          {project.technologies.slice(0, 6).map((t) => (
-            <span
-              key={t}
-              className="rounded-full border border-border/60 bg-background/50 px-2.5 py-0.5 text-[11px] text-muted-foreground"
-            >
-              {t}
-            </span>
-          ))}
+
+        {/* Bottom bar: Tech chips + Action links */}
+        <div className="mt-8 pt-6 border-t border-border/40 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          {/* Tech Stack Chips */}
+          <div className="flex flex-wrap gap-1.5">
+            {project.technologies.slice(0, 5).map((tech) => (
+              <span
+                key={tech}
+                className="rounded-full border border-border/60 bg-muted/60 px-2.5 py-0.5 text-[11px] font-medium text-foreground/80 hover:border-blue-500/40 transition"
+              >
+                {tech}
+              </span>
+            ))}
+            {project.technologies.length > 5 && (
+              <span className="rounded-full border border-border/40 bg-muted/30 px-2 py-0.5 text-[10px] text-muted-foreground">
+                +{project.technologies.length - 5}
+              </span>
+            )}
+          </div>
+
+          {/* Actions */}
+          <div className="flex items-center gap-2 shrink-0">
+            {project.liveUrl && (
+              <a
+                href={project.liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-apple-primary text-xs py-2 px-4 shadow-md shadow-blue-500/25"
+              >
+                <span>Live App</span>
+                <ArrowUpRight className="h-3.5 w-3.5" />
+              </a>
+            )}
+
+            {project.githubUrl && (
+              <a
+                href={project.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-apple-secondary text-xs py-2 px-3.5"
+                aria-label={`${project.title} GitHub Source`}
+              >
+                <Github className="h-3.5 w-3.5" />
+                <span>Source</span>
+              </a>
+            )}
+          </div>
         </div>
       </div>
-    </Link>
+    </div>
   );
 }
+
+

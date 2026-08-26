@@ -1,34 +1,7 @@
-export type ModeId = 'product' | 'business' | 'development';
-
-export interface RoleMode {
-  id: ModeId;
-  label: string;
-  shortLabel: string;
-  tagline: string;
-  heroHeadline: string;
-  heroKicker: string;
-  introduction: string;
-  featuredProjectIds: string[];
-  highlightedSkillCategories: string[];
-  resumeUrl: string;
-  primaryCta: { label: string; href: string };
-  secondaryCta: { label: string; href: string };
-}
-
-export interface ProjectImage {
-  src: string;
-  alt: string;
-  width?: number;
-  height?: number;
-}
-
 export interface ProjectLink {
   label: string;
   href: string;
-}
-
-export interface RoleSummary {
-  summary: string;
+  icon?: 'external' | 'github' | 'demo';
 }
 
 export interface Project {
@@ -36,43 +9,16 @@ export interface Project {
   slug: string;
   title: string;
   subtitle: string;
-  year: number;
+  description: string;
+  year: string | number;
   featured: boolean;
-  categories?: ModeId[];
-  images: ProjectImage[];
+  category: 'Full-Stack' | 'Frontend' | 'Backend & AI' | 'Mobile & Audio' | 'Academic / ML';
   technologies: string[];
-  responsibilities: string[];
-  results: string[];
-  links?: ProjectLink[];
-  sourceCodeUrl?: string;
+  highlights: string[];
   liveUrl?: string;
-  roleSummaries: Record<ModeId, RoleSummary>;
-  accent: string; // tailwind gradient token
-}
-
-export interface CaseStudySection {
-  heading: string;
-  body: string;
-  bullets?: string[];
-}
-
-export interface CaseStudy {
-  projectId: string;
-  hero: {
-    eyebrow: string;
-    title: string;
-    lede: string;
-    metrics: { label: string; value: string }[];
-  };
-  overview: string;
-  problem: string;
-  approach: CaseStudySection[];
-  outcomes: string[];
-  reflections: string;
-  gallery?: ProjectImage[];
-  timeline?: string;
-  team?: string;
-  myRole?: string;
+  githubUrl?: string;
+  accent: string;
+  isWorkingDemo?: boolean;
 }
 
 export interface WorkExperience {
@@ -85,6 +31,7 @@ export interface WorkExperience {
   summary: string;
   highlights: string[];
   tags: string[];
+  companyUrl?: string;
 }
 
 export interface SkillCategory {
@@ -92,6 +39,7 @@ export interface SkillCategory {
   name: string;
   description: string;
   skills: string[];
+  highlight?: boolean;
 }
 
 export interface EducationEntry {
@@ -101,6 +49,7 @@ export interface EducationEntry {
   start: string;
   end: string;
   detail?: string;
+  location?: string;
 }
 
 export interface NavItem {
@@ -119,7 +68,6 @@ export interface SiteConfig {
   name: string;
   domain: string;
   url: string;
-  defaultMode: ModeId;
   description: string;
   keywords: string[];
   locale: string;
@@ -130,12 +78,17 @@ export interface SiteConfig {
 export interface Profile {
   fullName: string;
   shortName: string;
+  title: string;
+  headline: string;
   location: string;
   timezone: string;
-  pronouns?: string;
   email: string;
   availability: string;
   bio: string;
   longBio: string;
-  headshot?: string;
+  headshot: string;
+  github: string;
+  linkedin: string;
+  resumeUrl: string;
 }
+

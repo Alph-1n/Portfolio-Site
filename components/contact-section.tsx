@@ -1,76 +1,129 @@
 'use client';
 
-import { useMode } from './mode-context';
+import { useState } from 'react';
+import Link from 'next/link';
 import { profile } from '@/data/profile';
 import { socialLinks } from '@/data/social';
-import { Github, Linkedin, Mail, Twitter, Globe, ArrowUpRight, Download } from 'lucide-react';
+import { Github, Linkedin, Mail, ArrowUpRight, Download, Check, Copy, MessageSquare, FileText } from 'lucide-react';
+
 
 const iconMap = {
   github: Github,
   linkedin: Linkedin,
   mail: Mail,
-  twitter: Twitter,
-  website: Globe,
 } as const;
 
 export function ContactSection() {
-  const { mode } = useMode();
+  const [copied, setCopied] = useState(false);
+
+  const copyEmail = () => {
+    navigator.clipboard.writeText(profile.email);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
 
   return (
-    <section id="contact" className="container relative py-24 sm:py-32">
-      <div className="glass relative overflow-hidden rounded-[2rem] p-8 sm:p-14">
+    <section id="contact" className="container max-w-6xl mx-auto px-4 sm:px-6 py-24 sm:py-32 relative">
+      <div className="glass-card relative overflow-hidden rounded-[2.5rem] p-8 sm:p-14 border border-border/70 shadow-2xl">
+        {/* Specular gradient glow */}
         <div
           aria-hidden
-          className="pointer-events-none absolute -right-32 -top-32 h-96 w-96 rounded-full bg-gradient-to-br from-primary/30 via-primary/10 to-transparent blur-3xl"
+          className="pointer-events-none absolute -right-28 -top-28 h-96 w-96 rounded-full bg-gradient-to-br from-blue-500/20 via-indigo-500/10 to-transparent blur-3xl"
         />
-        <div className="relative z-10 grid grid-cols-1 gap-10 lg:grid-cols-2">
-          <div>
-            <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Contact</p>
-            <h2 className="mt-3 headline text-balance text-4xl sm:text-5xl md:text-6xl">
-              Have a <span className="italic">quiet</span> problem worth solving?
+
+        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          {/* Left Column: Heading & Main CTAs */}
+          <div className="lg:col-span-7">
+            <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-blue-500 mb-3">
+              <MessageSquare className="h-3.5 w-3.5" />
+              <span>Get in Touch</span>
+            </div>
+            
+            <h2 className="apple-headline text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-foreground text-balance">
+              Let&apos;s build something <span className="text-blue-500">exceptional</span>.
             </h2>
-            <p className="mt-6 max-w-md text-lg text-muted-foreground">
-              I reply within a day or two. Short notes preferred.
+            
+            <p className="mt-5 text-base sm:text-lg text-muted-foreground leading-relaxed max-w-lg">
+              Open for full-time Software Engineer, Frontend Engineer, and Full-Stack opportunities. Feel free to reach out directly via email or LinkedIn.
             </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <a href={`mailto:${profile.email}`} className="btn-primary focus-ring text-sm">
-                Say hello
-                <ArrowUpRight className="h-4 w-4" />
+
+            <div className="mt-8 flex flex-wrap items-center gap-3">
+              <a
+                href={`mailto:${profile.email}`}
+                className="btn-apple-primary text-sm py-3 px-6 shadow-md"
+              >
+                <Mail className="h-4 w-4" />
+                <span>Send Email</span>
               </a>
-              <a href={mode.resumeUrl} className="btn-ghost focus-ring text-sm">
-                Download résumé ({mode.shortLabel})
-                <Download className="h-4 w-4" />
-              </a>
+
+              <button
+                onClick={copyEmail}
+                className="btn-apple-secondary text-sm py-3 px-5"
+                aria-label="Copy Email Address"
+              >
+                {copied ? (
+                  <>
+                    <Check className="h-4 w-4 text-emerald-500" />
+                    <span className="text-emerald-500">Email Copied!</span>
+                  </>
+                ) : (
+                  <>
+                    <Copy className="h-4 w-4 text-muted-foreground" />
+                    <span>Copy Email</span>
+                  </>
+                )}
+              </button>
+
+              <Link
+                href="/resume"
+                className="btn-apple-secondary text-sm py-3 px-5"
+              >
+                <FileText className="h-4 w-4 text-blue-400" />
+                <span>View Résumé</span>
+              </Link>
+
             </div>
           </div>
 
-          <div className="flex flex-col justify-end">
-            <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Elsewhere</p>
-            <ul className="mt-4 divide-y divide-border/60">
-              {socialLinks.map((s) => {
-                const Icon = iconMap[s.icon] ?? Globe;
-                return (
-                  <li key={s.href}>
-                    <a
-                      href={s.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="focus-ring group flex items-center justify-between gap-4 py-4"
-                    >
-                      <span className="flex items-center gap-3">
-                        <Icon className="h-4 w-4 text-muted-foreground" />
-                        <span className="font-medium">{s.label}</span>
-                        <span className="text-sm text-muted-foreground">{s.handle}</span>
-                      </span>
-                      <ArrowUpRight className="h-4 w-4 text-muted-foreground transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-foreground" />
-                    </a>
-                  </li>
-                );
-              })}
-            </ul>
+          {/* Right Column: Social Links Cards */}
+          <div className="lg:col-span-5 flex flex-col gap-3">
+            <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-1">
+              Connect Directly
+            </p>
+            
+            {socialLinks.map((s) => {
+              const Icon = iconMap[s.icon as keyof typeof iconMap] ?? Mail;
+              return (
+                <a
+                  key={s.label}
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="glass-card group flex items-center justify-between p-4 rounded-2xl border border-border/60 hover:border-blue-500/40 transition-all duration-200"
+                >
+                  <div className="flex items-center gap-3.5">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-muted/60 text-foreground group-hover:text-blue-500 group-hover:bg-blue-500/10 transition-colors">
+                      <Icon className="h-5 w-5" />
+                    </div>
+                    <div>
+                      <div className="font-semibold text-sm text-foreground group-hover:text-blue-500 transition-colors">
+                        {s.label}
+                      </div>
+                      <div className="text-xs text-muted-foreground">
+                        {s.handle}
+                      </div>
+                    </div>
+                  </div>
+                  <ArrowUpRight className="h-4 w-4 text-muted-foreground transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-blue-500" />
+                </a>
+              );
+            })}
           </div>
+
         </div>
       </div>
     </section>
   );
 }
+
