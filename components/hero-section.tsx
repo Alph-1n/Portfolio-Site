@@ -39,7 +39,7 @@ export function HeroSection() {
           </a>
           .{' '}
           <Link href={profile.resumeUrl} className="link-coral">
-            View my résumé
+            View my resume
           </Link>
         </p>
       </div>
