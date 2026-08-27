@@ -12,12 +12,11 @@ module.exports = {
     container: {
       center: true,
       padding: '1.5rem',
-      screens: { '2xl': '1280px' },
+      screens: { '2xl': '1400px' },
     },
     extend: {
       fontFamily: {
         sans: ['var(--font-sans)', 'ui-sans-serif', 'system-ui', '-apple-system', 'sans-serif'],
-        display: ['var(--font-display)', 'ui-serif', 'Georgia', 'serif'],
       },
       colors: {
         border: 'hsl(var(--border))',
@@ -25,6 +24,7 @@ module.exports = {
         ring: 'hsl(var(--ring))',
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
+        coral: 'hsl(var(--coral))',
         primary: {
           DEFAULT: 'hsl(var(--primary))',
           foreground: 'hsl(var(--primary-foreground))',
@@ -52,16 +52,21 @@ module.exports = {
         sm: 'calc(var(--radius) - 4px)',
       },
       letterSpacing: {
-        'tightest': '-0.045em',
+        tightest: '-0.045em',
       },
       keyframes: {
         'fade-up': {
           '0%': { opacity: '0', transform: 'translateY(12px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' },
         },
+        marquee: {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-50%)' },
+        },
       },
       animation: {
         'fade-up': 'fade-up 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) both',
+        marquee: 'marquee 40s linear infinite',
       },
     },
   },

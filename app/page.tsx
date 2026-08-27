@@ -1,9 +1,12 @@
 import { SiteHeader } from '@/components/site-header';
 import { HeroSection } from '@/components/hero-section';
+import { OverviewSection } from '@/components/overview-section';
+import { StrategySection } from '@/components/strategy-section';
 import { FeaturedProjects } from '@/components/featured-projects';
 import { SkillsSection } from '@/components/skills-section';
 import { ExperienceSection } from '@/components/experience-section';
 import { AboutSection } from '@/components/about-section';
+import { FaqSection } from '@/components/faq-section';
 import { ContactSection } from '@/components/contact-section';
 import { SiteFooter } from '@/components/site-footer';
 
@@ -15,18 +18,16 @@ export default function Page() {
       <SiteHeader />
       <main id="main" className="relative">
         <HeroSection />
-        <div className="hairline mx-auto max-w-6xl" />
+        <OverviewSection />
+        <StrategySection />
         <FeaturedProjects />
-        <div className="hairline mx-auto max-w-6xl" />
         <SkillsSection />
-        <div className="hairline mx-auto max-w-6xl" />
         <ExperienceSection />
-        <div className="hairline mx-auto max-w-6xl" />
         <AboutSection />
+        <FaqSection />
         <ContactSection />
       </main>
       <SiteFooter />
     </>
   );
 }
-
